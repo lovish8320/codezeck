@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CodZeck - Advanced coding platform for learning and practicing programming skills">
+    <meta name="keywords" content="coding, programming, learning, challenges, playground">
+    <title>CodZeck - Advanced Coding Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
+    <link rel="stylesheet" href="codezeck.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-code"></i> CodZeck</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#playground"><i class="fas fa-laptop-code"></i> Playground</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#problems"><i class="fas fa-tasks"></i> Problems</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profile"><i class="fas fa-user"></i> Profile</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ms-auto">
+                    <button id="darkModeToggle" class="btn btn-outline-light me-2" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i> Dark Mode
+                    </button>
+                    <button id="shareCode" class="btn btn-outline-light" aria-label="Share code">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content container mt-4">
+        <div id="playground" class="coding-area position-relative">
+            <h2><i class="fas fa-laptop-code"></i> CodZeck Playground</h2>
+            <p>Practice coding without constraints. Select a language and start coding!</p>
+            <div class="language-select-container">
+                <select id="playground-language-select" class="form-select" aria-label="Select programming language">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                </select>
+            </div>
+            <div id="playground-editor"></div>
+            <button id="playground-run-btn" class="btn btn-primary mt-3"><i class="fas fa-play"></i> Run Code</button>
+            <button id="playground-save-btn" class="btn btn-secondary mt-3"><i class="fas fa-save"></i> Save
+                Snippet</button>
+            <h3 class="mt-4"><i class="fas fa-terminal"></i> Output</h3>
+            <div id="playground-output"></div>
+            <h3 class="mt-4"><i class="fas fa-save"></i> Saved Snippets</h3>
+            <ul id="saved-snippets-list" class="list-group"></ul>
+        </div>
+
+        <div id="problems" class="mt-4" style="display: none;">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3><i class="fas fa-list"></i> Problem Set</h3>
+                    <div class="problem-list list-group">
+                        <a href="#" class="list-group-item list-group-item-action" data-difficulty="Easy">
+                            Two Sum <span class="badge bg-success float-end">Easy</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" data-difficulty="Medium">
+                            Longest Substring <span class="badge bg-warning float-end">Medium</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" data-difficulty="Hard">
+                            Median of Two Sorted Arrays <span class="badge bg-danger float-end">Hard</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div id="problem-description">
+                        <h2><i class="fas fa-question-circle"></i> Select a Problem</h2>
+                        <p>Click on a problem from the list to view its description and start solving.</p>
+                    </div>
+                    <div id="problem-editor" class="coding-area position-relative" style="display: none;">
+                        <div class="language-select-container">
+                            <select id="problem-language-select" class="form-select"
+                                aria-label="Select programming language">
+                                <option value="python">Python</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="java">Java</option>
+                                <option value="c">C</option>
+                                <option value="cpp">C++</option>
+                            </select>
+                        </div>
+                        <div id="editor"></div>
+                        <button id="run-btn" class="btn btn-primary mt-3"><i class="fas fa-play"></i> Run Code</button>
+                        <button id="submit-btn" class="btn btn-success mt-3"><i class="fas fa-check"></i> Submit
+                            Solution</button>
+                        <div id="timer" class="mt-3">Time: 00:00</div>
+                        <h3 class="mt-4"><i class="fas fa-terminal"></i> Output</h3>
+                        <div id="output"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="profile" class="mt-4" style="display: none;">
+            <h2 style="color: var(--secondary-color);"><i class="fas fa-user"></i> User Profile</h2>
+            <div class="card"
+                style="background-color: #2c3e50; border: 1px solid var(--secondary-color); border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+                <div class="card-body text-center">
+                    <img src="./images/profile.png" alt="Profile Picture" class="rounded-circle mb-3"
+                        style="border: 2px solid var(--secondary-color);">
+                    <h5 class="card-title" style="color: var(--text-light); font-size: 24px;" id="username"></h5>
+                    <p class="card-text" style="color: var(--text-light); font-size: 18px;">
+                        Completed Challenges: <span style="color: var(--secondary-color); font-weight: bold;"
+                            id="completedChallenges">15</span>
+                    </p>
+                    <p class="card-text" style="color: var(--text-light); font-size: 18px;">
+                        Current Streak: <span style="color: var(--secondary-color); font-weight: bold;">5 days</span>
+                    </p>
+                    <h6 style="color: var(--text-light); font-size: 18px;">Recent Activity:</h6>
+                    <ul style="color: var(--text-light); font-size: 16px; list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 10px; border-bottom: 1px solid #ccc;">Solved "Two Sum" - 2 days ago</li>
+                        <li style="padding: 10px;">Completed Java course - 1 week ago</li>
+                    </ul>
+                    <h6 style="color: var(--text-light); font-size: 18px; margin-top: 20px;">Progress:</h6>
+                    <div class="progress mb-2" style="height: 20px;">
+                        <div class="progress-bar" role="progressbar"
+                            style="width: 75%; background-color: var(--secondary-color);" aria-valuenow="75"
+                            aria-valuemin="0" aria-valuemax="100">75%</div>
+                    </div>
+                    <h6 style="color: var(--text-light); font-size: 18px;">Achievements:</h6>
+                    <span class="badge bg-success me-1">Beginner</span>
+                    <span class="badge bg-warning text-dark me-1">Intermediate</span>
+                    <span class="badge bg-danger">Advanced</span>
+                    <div class="mt-3">
+                        <button class="btn btn-outline-light" style="margin-right: 10px;" onclick="editProfile()">Edit
+                            Profile</button>
+                        <button class="btn btn-outline-danger" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-dark text-light text-center py-3 mt-5">
+            <p>&copy; 2024 CodZeck. All rights reserved.</p>
+        </footer>
+
+        <div class="font-size-control">
+            <button id="increaseFontSize" class="btn btn-secondary" aria-label="Increase font size"><i
+                    class="fas fa-plus"></i></button>
+            <button id="decreaseFontSize" class="btn btn-secondary" aria-label="Decrease font size"><i
+                    class="fas fa-minus"></i></button>
+        </div>
+
+        <!-- Chat button -->
+<div id="chat-button" class="chat-button">
+    <i class="fas fa-comments"></i>
+</div>
+
+<!-- Chat container -->
+<div id="chat-container" class="chat-container">
+    <div class="chat-header">
+        <h3>EduTech Assistant</h3>
+        <button id="close-chat">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-message">Send</button>
+    </div>
+</div>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder"></script>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="codezeck.js"></script>
+</body>
+
+</html>

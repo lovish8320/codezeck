@@ -1,0 +1,719 @@
+/* Global Styles */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+}
+
+/* Performance optimizations */
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Improved accessibility */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Improved button styles with focus states */
+.btn {
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.btn:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #3a7bd5;
+    border-color: #3a7bd5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+header {
+    transition: var(--transition);
+}
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    max-height: 40px;
+    transition: var(--transition);
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Hero Section Styles */
+#home {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1920/1080') no-repeat center center/cover;
+    position: relative;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#home .container {
+    position: relative;
+    z-index: 1;
+}
+
+#home h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#home p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.highlight {
+    color: #a3ff12;
+}
+
+.learning-paths {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    /* Changed from wrap to nowrap to keep images in one line */
+    gap: 20px;
+}
+
+/* Improved responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.path-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 150px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.path-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    position: absolute;
+    top: 20px;
+    /* Added top property */
+}
+
+.path-item p {
+    margin: 0;
+    font-size: 0.6rem;
+    color: #000000;
+    position: absolute;
+    bottom: 10px;
+}
+
+.path-item:hover {
+    transform: translateY(-5px);
+    outline: 5px solid green;
+}
+
+/* Improved loading states */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Course Section Styles */
+/* Improved form styles */
+.form-control {
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}
+
+.card img {
+    transition: var(--transition);
+    width: 100%;
+    /* Make images full-width */
+    height: 200px;
+    /* Set a fixed height for images */
+    object-fit: cover;
+    /* Scale images to cover the entire area */
+    border-radius: 10px 10px 0 0;
+    /* Add a border radius to the top corners */
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Features Section Styles */
+#features .card {
+    border: none;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+#features .card:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+#features .card:hover i {
+    color: var(--white) !important;
+}
+
+#features i {
+    transition: var(--transition);
+}
+
+/* About Section Styles */
+/* #about img {
+transition: var(--transition);
+}
+
+#about img:hover {
+transform: scale(1.02);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+} */
+
+.about-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.about-video iframe,
+.about-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Contact Section Styles */
+#contact .card {
+    border: none;
+    border-radius: 10px;
+}
+
+#contact .form-control {
+    border: none;
+    border-bottom: 2px solid #ddd;
+    border-radius: 0;
+    padding-left: 0;
+    transition: var(--transition);
+}
+
+#contact .form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+#contact .btn {
+    border-radius: 30px;
+}
+
+/* Footer Styles */
+footer {
+    font-size: 0.9rem;
+}
+
+footer h5 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+footer .social-icons a {
+    font-size: 1.2rem;
+    width: 40 px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    background-color: #007bff;
+}
+
+footer .list-unstyled li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .list-unstyled li a:hover {
+    color: #007bff;
+}
+
+footer .input-group {
+    width: 100%;
+}
+
+footer .input-group input {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+footer .input-group button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0 0.25rem 0.25rem 0;
+    background-color: #007bff;
+    color: #fff;
+}
+
+footer .input-group button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    .navbar-nav {
+        background-color: var(--white);
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .learning-paths {
+        flex-wrap: wrap;
+        /* Changed back to wrap on smaller screens */
+    }
+}
+
+/* Center the navbar */
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ensure dropdown menu displays correctly */
+.dropdown-menu {
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Style updates for the contact form */
+#contact .card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+#contact .card:hover {
+    transform: translateY(-5px);
+}
+
+#contact .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+}
+
+#contact .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    border-color: #3498db;
+}
+
+#contact .btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+    transition: all 0.3s ease;
+}
+
+#contact .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.testimonial-image {
+    width: 10px;
+    /* Adjust the width to a smaller size */
+    height: 10px;
+    /* Adjust the height to a smaller size */
+    object-fit: cover;
+    /* Scale the image to fit the container */
+    border-radius: 50%;
+    /* Keep the border radius to maintain the circular shape */
+}
+
+/* New styles for course enrollment and my courses */
+.course-enrollment {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.course-enrollment h2 {
+    margin-top: 0;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #337ab7;
+}
+
+.coupon-form {
+    margin-top: 20px;
+}
+
+.coupon-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+
+.coupon-form button[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.coupon-form button[type="submit"]:hover {
+    background-color: #23527c;
+}
+
+#coupon-message {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#enroll-button {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#enroll-button:hover {
+    background-color: #23527c;
+}
+
+#enrollment-message {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.my-courses {
+    padding: 2rem;
+}
+
+.course-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.course-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #4a90e2;
+    transition: width 0.3s ease;
+}
+
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.chat-button i {
+    font-size: 24px;
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.chat-header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+}
+
+#close-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#send-message {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: #e6f2ff;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #f0f0f0;
+    align-self: flex-start;
+}
+
+.course-suggestion {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.course-suggestion h4 {
+    margin-top: 0;
+}
+
+.course-suggestion button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* Improved animation performance */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+}
+
+/* Improved form styles */
+.form-control {
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}

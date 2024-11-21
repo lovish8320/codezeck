@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTech - Advanced Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header class="fixed-top bg-white shadow-sm" role="banner">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <a class="navbar-brand" href="#">
+                <img src="./images/EduLogo.png" alt="EduTech Logo" class="img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./course.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./codezeck.html">Practice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./certification.html">Certifications</a></li>
+                </ul>
+            </div>
+            <div id="loginContainer">
+                <button id="loginButton" class="btn btn-outline-primary ms-3">Login</button>
+            </div>
+            <div id="profileContainer" style="display: none;">
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="profileDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" id="userEmail" href="#"></a></li>
+                        <li><a class="dropdown-item" href="#">My Courses</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><button class="dropdown-item" id="logoutButton">Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section id="home" class="vh-100 d-flex align-items-center text-white">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-4">Bootcamp level quality, <span class="highlight">at a fraction of the
+                        cost.</span></h1>
+                <p class="lead mb-5">Find the right learning path for you</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="learning-paths">
+                            <div class="path-item">
+                                <img src="./images/ds.svg" alt="Data Science">
+                                <p>Data Science</p>
+                            </div>
+                            <div class="path-item">
+                                <img src="./images/pd.svg" alt="Programming & Development">
+                                <p>Programming & Development</p>
+                            </div>
+                            <div class="path-item">
+                                <img src="./images/ai.svg" alt="Artificial Intelligence">
+                                <p>Artificial Intelligence</p>
+                            </div>
+                            <div class="path-item">
+                                <img src="./images/bi.svg" alt="Business">
+                                <p>Business</p>
+                            </div>
+                            <div class="path-item">
+                                <img src="./images/as.svg" alt="Autonomous Systems">
+                                <p>Autonomous Systems</p>
+                            </div>
+                            <div class="path-item">
+                                <img src="./images/pm.svg" alt="Product Management">
+                                <p>Product Management</p>
+                            </div>
+                            <div class="path-item">
+                                <img src="./images/cc.svg" alt="Cloud Computing">
+                                <p>Cloud Computing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Featured Courses</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="./images/WebDev.jpg" class="card-img-top" alt="Course 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Web Development Bootcamp</h5>
+                                <p class="card-text">Learn full-stack web development from scratch.</p>
+                                <a href="#" class="btn btn-primary">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="./images/DataScience.jpg" class="card-img-top" alt="Course 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Data Science Fundamentals</h5>
+                                <p class="card-text">Master the basics of data analysis and machine learning.</p>
+                                <a href="#" class="btn btn-primary">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="./images/DataMarketing.jpeg" class="card-img-top" alt="Course 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Digital Marketing Mastery</h5>
+                                <p class="card-text">Learn to create and execute effective marketing strategies.</p>
+                                <a href="#" class="btn btn-primary">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="./course.html" class="btn btn-lg btn-outline-primary">View All Courses</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Why Choose EduTech?</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-chalkboard-teacher fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Expert Instructors</h5>
+                                <p class="card-text">Learn from industry professionals with years of experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Hands-on Projects</h5>
+                                <p class="card-text">Apply your skills with real-world projects and build a portfolio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Flexible Learning</h5>
+                                <p class="card-text">Study at your own pace with 24/7 access to course materials.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="mb-4">About EduTech</h2>
+                        <p class="lead">EduTech is a leading online education platform dedicated to empowering learners
+                            worldwide. Our mission is to provide high-quality, accessible education that helps
+                            individuals achieve their personal and professional goals.</p>
+                        <a href="#" class="btn btn-primary">Learn More About Us</a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about-video">
+                            <video width="100%" height="315" autoplay loop>
+                                <source src="./images/advertisment.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Learners Love EduTech</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">"EduTech helped me gain on-the-job confidence, build a portfolio,
+                                    and earn a microcredential to share with prospective employers."</p>
+                                <div class="d-flex align-items-center mt-3">
+
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-0">Ben, Business Analyst</h6>
+                                        <small class="text-muted">Nanodegree program graduate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">"I started with the basics, completed a Nanodegree program, and
+                                    gained so much experience. I'm now in a new Android job!"</p>
+                                <div class="d-flex align-items-center mt-3">
+
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-0">Mahmoud, Android Developer</h6>
+                                        <small class="text-muted">Nanodegree program graduate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">"EduTech gave me the tools to advance my career--I am now
+                                    spearheading a machine learning research team at my company."</p>
+                                <div class="d-flex align-items-center mt-3">
+
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-0">Matthew, Machine Learning</h6>
+                                        <small class="text-muted">Nanodegree Program graduate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-10">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <div class="text-center mb-3">
+                                <img src="./images/facebook.svg" alt="Facebook" class="mb-2">
+                                <div>
+                                    <span class="text-warning">★★★★☆</span>
+                                    <br>
+                                    <a href="#" class="text-primary">2083 Reviews</a>
+                                </div>
+                            </div>
+                            <div class="text-center mb-3">
+                                <img src="./images/coursereport.svg" alt="Course Report" class="mb-2">
+                                <div>
+                                    <span class="text-warning">★★★★☆</span>
+                                    <br>
+                                    <a href="#" class="text-primary">624 Reviews</a>
+                                </div>
+                            </div>
+                            <div class="text-center mb-3">
+                                <img src="./images/switchup.svg" alt="Switchup" class="mb-2">
+                                <div>
+                                    <span class="text-warning">★★★★☆</span>
+                                    <br>
+                                    <a href="#" class="text-primary">1405 Reviews</a>
+                                </div>
+                            </div>
+                            <div class="text-center mb-3">
+                                <img src="./images/trustpilot.svg" alt="Trustpilot" class="mb-2">
+                                <div>
+                                    <span class="text-warning">★★★★☆</span>
+                                    <br>
+                                    <a href="#" class="text-primary">2573 Reviews</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- New section for course enrollment -->
+        <section id="course-enrollment" class="course-enrollment" style="display: none;">
+            <h2>Enroll in <span id="course-title"></span></h2>
+            <p id="course-description"></p>
+            <div class="price">Price: $<span id="course-price"></span></div>
+            <form id="coupon-form" class="coupon-form">
+                <input type="text" id="coupon-code" placeholder="Enter coupon code">
+                <button type="submit" class="btn btn-secondary">Apply Coupon</button>
+            </form>
+            <div id="coupon-message" class="mt-2"></div>
+            <button id="enroll-button" class="btn btn-primary mt-3">Enroll Now</button>
+            <div id="enrollment-message" class="mt-3"></div>
+            <button id="back-to-courses" class="btn btn-secondary mt-3">Back to Courses</button>
+        </section>
+
+        <!-- New section for my courses -->
+        <section id="my-courses" class="my-courses" style="display: none;">
+            <h2>My Courses</h2>
+            <div id="courses-container"></div>
+        </section>
+    </main>
+
+    <footer role="contentinfo" class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">About EduTech</h5>
+                    <p class="mb-4">Empowering learners worldwide with cutting-edge online education and professional
+                        development opportunities.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>123 Education St, Learning City,
+                            12345</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>(123) 456-7890</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@edutech.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Newsletter</h5>
+                    <p class="mb-3">Stay updated with our latest courses and offers.</p>
+                    <form id="newsletter-form" onsubmit="return false;">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" id="newsletter-email"
+                                placeholder="Enter your email" aria-label="Enter your email"
+                                aria-describedby="button-addon2" required>
+                            <button class="btn btn-primary" type="submit" id="newsletter-submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            <p class="mb-0">&copy; 2024 EduTech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder"></script>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
